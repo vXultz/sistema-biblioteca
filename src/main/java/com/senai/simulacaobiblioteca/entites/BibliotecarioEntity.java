@@ -16,6 +16,7 @@ public class BibliotecarioEntity {
 
     private String nome;
 
+    @Column(unique = true)
     private String email;
     private String senha;
 }

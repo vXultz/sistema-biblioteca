@@ -18,6 +18,6 @@ public class MembroEntity {
     private String endereco;
 
     @Column(unique = true)
-    private Long telefone;
+    private String telefone;
 
 }
