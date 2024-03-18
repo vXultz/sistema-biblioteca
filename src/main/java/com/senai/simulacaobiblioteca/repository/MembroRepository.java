@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface MembroRepository extends JpaRepository<MembroEntity, Long> {
 
-    Optional<MembroEntity> findMembroEntityById(Long id);
+    Optional<MembroEntity> findMembroById(Long id);
 }

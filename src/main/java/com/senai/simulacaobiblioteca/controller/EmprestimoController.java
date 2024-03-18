@@ -1,5 +1,6 @@
 package com.senai.simulacaobiblioteca.controller;
 
+import com.senai.simulacaobiblioteca.dto.EmprestimoDTO;
 import com.senai.simulacaobiblioteca.entites.EmprestimoEntity;
 import com.senai.simulacaobiblioteca.service.EmprestimoService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class EmprestimoController {
     private final EmprestimoService emprestimoService;
 
     @PostMapping
-    public EmprestimoEntity salvarEmprestimo(@RequestBody EmprestimoEntity emprestimoEntity) {
-        return emprestimoService.salvarEmprestimo(emprestimoEntity);
+    public EmprestimoEntity salvarEmprestimo(@RequestBody EmprestimoDTO emprestimoDTO) {
+        return emprestimoService.salvarEmprestimo(emprestimoDTO);
     }
 }
