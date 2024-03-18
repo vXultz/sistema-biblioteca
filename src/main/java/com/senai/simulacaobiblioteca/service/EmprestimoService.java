@@ -41,4 +41,8 @@ public class EmprestimoService {
     public List<EmprestimoEntity> listarEmprestimos() {
         return emprestimoRepository.findAll();
     }
+
+    public void deletarEmprestimo(Long id) {
+        emprestimoRepository.deleteById(id);
+    }
 }

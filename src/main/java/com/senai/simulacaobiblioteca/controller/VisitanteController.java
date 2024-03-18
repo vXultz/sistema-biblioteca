@@ -23,4 +23,9 @@ public class VisitanteController {
     public List<VisitanteEntity> listarVisitantes() {
         return visitanteService.listarVisitantes();
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarVisitante(@PathVariable Long id) {
+        visitanteService.deletarVisitante(id);
+    }
 }

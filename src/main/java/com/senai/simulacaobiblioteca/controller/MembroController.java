@@ -23,4 +23,9 @@ public class MembroController {
     public List<MembroEntity> listarMembros() {
         return membroService.listarMembros();
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarMembro(@PathVariable Long id) {
+        membroService.deletarMembro(id);
+    }
 }

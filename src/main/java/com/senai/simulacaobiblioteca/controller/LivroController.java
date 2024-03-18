@@ -25,4 +25,9 @@ public class LivroController {
     public List<LivroEntity> listarLivros() {
         return livroService.listarLivros();
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarLivro(@PathVariable Long id) {
+        livroService.deletarLivro(id);
+    }
 }

@@ -22,4 +22,8 @@ public class LivroService {
     public List<LivroEntity> listarLivros() {
         return livroRepository.findAll();
     }
+
+    public void deletarLivro(Long id) {
+        livroRepository.deleteById(id);
+    }
 }

@@ -24,4 +24,9 @@ public class EmprestimoController {
     public List<EmprestimoEntity> listarEmprestimos() {
         return emprestimoService.listarEmprestimos();
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarEmprestimo(@PathVariable Long id) {
+        emprestimoService.deletarEmprestimo(id);
+    }
 }

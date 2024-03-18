@@ -23,4 +23,9 @@ public class BibliotecarioController {
     public List<BibliotecarioEntity> listarBibliotecarios() {
         return bibliotecarioService.listarBibliotecarios();
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarBibliotecario(@PathVariable Long id) {
+        bibliotecarioService.deletarBibliotecario(id);
+    }
 }
