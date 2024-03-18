@@ -3,10 +3,9 @@ package com.senai.simulacaobiblioteca.controller;
 import com.senai.simulacaobiblioteca.entites.BibliotecarioEntity;
 import com.senai.simulacaobiblioteca.service.BibliotecarioService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/bibliotecario")
@@ -18,5 +17,10 @@ public class BibliotecarioController {
     @PostMapping
     public BibliotecarioEntity salvarBibliotecario(@RequestBody BibliotecarioEntity bibliotecarioEntity) {
         return bibliotecarioService.salvarBibliotecario(bibliotecarioEntity);
+    }
+
+    @GetMapping
+    public List<BibliotecarioEntity> listarBibliotecarios() {
+        return bibliotecarioService.listarBibliotecarios();
     }
 }

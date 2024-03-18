@@ -4,6 +4,8 @@ import com.senai.simulacaobiblioteca.entites.LivroEntity;
 import com.senai.simulacaobiblioteca.repository.LivroRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LivroService {
 
@@ -15,5 +17,9 @@ public class LivroService {
 
     public LivroEntity salvarLivro(LivroEntity livroEntity) {
         return livroRepository.save(livroEntity);
+    }
+
+    public List<LivroEntity> listarLivros() {
+        return livroRepository.findAll();
     }
 }

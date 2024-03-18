@@ -9,6 +9,8 @@ import com.senai.simulacaobiblioteca.repository.LivroRepository;
 import com.senai.simulacaobiblioteca.repository.MembroRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmprestimoService {
 
@@ -34,5 +36,9 @@ public class EmprestimoService {
         emprestimoEntity.setDataDevolucao(emprestimoDTO.getDataDevolucao());
 
         return emprestimoRepository.save(emprestimoEntity);
+    }
+
+    public List<EmprestimoEntity> listarEmprestimos() {
+        return emprestimoRepository.findAll();
     }
 }
