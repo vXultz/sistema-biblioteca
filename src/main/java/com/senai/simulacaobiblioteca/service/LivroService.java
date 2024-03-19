@@ -26,4 +26,12 @@ public class LivroService {
     public void deletarLivro(Long id) {
         livroRepository.deleteById(id);
     }
+
+    public int atualizarLivro(LivroEntity livroEntity) {
+        return livroRepository.update(
+                livroEntity.getTitulo(),
+                livroEntity.getAutor(),
+                livroEntity.getAnoPublicacao(),
+                livroEntity.getId());
+    }
 }

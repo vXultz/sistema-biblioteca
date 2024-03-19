@@ -30,4 +30,14 @@ public class LivroController {
     public void deletarLivro(@PathVariable Long id) {
         livroService.deletarLivro(id);
     }
+
+    @PutMapping
+    public int atualizarLivro(@RequestBody LivroEntity livroEntity) {
+        return livroService.atualizarLivro(new LivroEntity(
+                livroEntity.getId(),
+                livroEntity.getTitulo(),
+                livroEntity.getAutor(),
+                livroEntity.getAnoPublicacao()
+        ));
+    }
 }
