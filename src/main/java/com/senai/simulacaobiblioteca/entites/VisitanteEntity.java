@@ -16,4 +16,10 @@ public class VisitanteEntity {
 
     private String nome;
     private String telefone;
+
+    public VisitanteEntity(Long id, String nome, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+    }
 }

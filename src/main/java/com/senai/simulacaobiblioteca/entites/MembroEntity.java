@@ -20,4 +20,10 @@ public class MembroEntity {
     @Column(unique = true)
     private String telefone;
 
+    public MembroEntity(Long id, String nome, String endereco, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+    }
 }

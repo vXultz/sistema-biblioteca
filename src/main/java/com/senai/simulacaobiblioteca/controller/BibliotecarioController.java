@@ -28,4 +28,14 @@ public class BibliotecarioController {
     public void deletarBibliotecario(@PathVariable Long id) {
         bibliotecarioService.deletarBibliotecario(id);
     }
+
+    @PutMapping
+    public int atualizarBibliotecario(@RequestBody BibliotecarioEntity bibliotecarioEntity) {
+        return bibliotecarioService.atualizarBibliotecario(new BibliotecarioEntity(
+                bibliotecarioEntity.getId(),
+                bibliotecarioEntity.getNome(),
+                bibliotecarioEntity.getEmail(),
+                bibliotecarioEntity.getSenha()
+        ));
+    }
 }

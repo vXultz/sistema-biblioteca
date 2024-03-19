@@ -25,4 +25,12 @@ public class MembroService {
     public void deletarMembro(Long id) {
         membroRepository.deleteById(id);
     }
+
+    public int atualizarMembro(MembroEntity membroEntity) {
+        return membroRepository.update(
+                membroEntity.getNome(),
+                membroEntity.getEndereco(),
+                membroEntity.getTelefone(),
+                membroEntity.getId());
+    }
 }

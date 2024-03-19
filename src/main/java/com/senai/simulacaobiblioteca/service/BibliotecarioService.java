@@ -25,4 +25,12 @@ public class BibliotecarioService {
     public void deletarBibliotecario(Long id) {
         bibliotecarioRepository.deleteById(id);
     }
+
+    public int atualizarBibliotecario(BibliotecarioEntity bibliotecarioEntity) {
+        return bibliotecarioRepository.update(
+                bibliotecarioEntity.getNome(),
+                bibliotecarioEntity.getEmail(),
+                bibliotecarioEntity.getSenha(),
+                bibliotecarioEntity.getId());
+    }
 }

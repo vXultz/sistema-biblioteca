@@ -1,7 +1,6 @@
 package com.senai.simulacaobiblioteca.repository;
 
 import com.senai.simulacaobiblioteca.entites.EmprestimoEntity;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,16 +12,13 @@ import java.time.LocalDateTime;
 @Repository
 public interface EmprestimoRepository extends JpaRepository<EmprestimoEntity, Long> {
 
-    @Transactional
+
     @Modifying
-    @Query("update EmprestimoEntity emprestimo set emprestimo.livro = :livro_id," +
-            "emprestimo.membro = :membro_id, " +
-            "emprestimo.dataEmprestimo = :dataEmprestimo, " +
-            "emprestimo.dataDevolucao = :dataDevolucao " +
-            "where emprestimo.id = :id")
-    int update(@Param("livro_id") Long livro_id,
-               @Param("membro_id") Long membro_id,
+    @Query("UPDATE EmprestimoEntity e SET e.livro.id = :livroId, e.membro.id = :membroId, e.dataEmprestimo = :dataEmprestimo, e.dataDevolucao = :dataDevolucao WHERE e.id = :id")
+    int update(@Param("id") Long id,
+               @Param("livroId") Long livroId,
+               @Param("membroId") Long membroId,
                @Param("dataEmprestimo") LocalDateTime dataEmprestimo,
-               @Param("dataDevolucao") LocalDateTime dataDevolucao,
-               @Param("id") Long id);
+               @Param("dataDevolucao") LocalDateTime dataDevolucao);
+
 }

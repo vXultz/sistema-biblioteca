@@ -28,4 +28,14 @@ public class MembroController {
     public void deletarMembro(@PathVariable Long id) {
         membroService.deletarMembro(id);
     }
+
+    @PutMapping
+    public int atualizarMembro(@RequestBody MembroEntity membroEntity) {
+        return membroService.atualizarMembro(new MembroEntity(
+                membroEntity.getId(),
+                membroEntity.getNome(),
+                membroEntity.getEndereco(),
+                membroEntity.getTelefone()
+        ));
+    }
 }

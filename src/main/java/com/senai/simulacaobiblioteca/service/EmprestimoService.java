@@ -7,6 +7,7 @@ import com.senai.simulacaobiblioteca.entites.MembroEntity;
 import com.senai.simulacaobiblioteca.repository.EmprestimoRepository;
 import com.senai.simulacaobiblioteca.repository.LivroRepository;
 import com.senai.simulacaobiblioteca.repository.MembroRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,4 +46,26 @@ public class EmprestimoService {
     public void deletarEmprestimo(Long id) {
         emprestimoRepository.deleteById(id);
     }
+
+    @Transactional
+    public EmprestimoEntity atualizarEmprestimo(Long id, EmprestimoDTO emprestimoDTO) {
+        EmprestimoEntity emprestimoEntity = emprestimoRepository.findById(id).orElseThrow();
+
+        LivroEntity livro = livroRepository.findLivroById(emprestimoDTO.getLivroId()).orElseThrow();
+        MembroEntity membro = membroRepository.findMembroById(emprestimoDTO.getMembroId()).orElseThrow();
+
+        emprestimoEntity.setLivro(livro);
+        emprestimoEntity.setMembro(membro);
+        emprestimoEntity.setDataEmprestimo(emprestimoDTO.getDataEmprestimo());
+        emprestimoEntity.setDataDevolucao(emprestimoDTO.getDataDevolucao());
+
+        emprestimoRepository.update(id,
+                emprestimoDTO.getLivroId(),
+                emprestimoDTO.getMembroId(),
+                emprestimoDTO.getDataEmprestimo(),
+                emprestimoDTO.getDataDevolucao());
+
+        return emprestimoEntity;
+    }
 }
+

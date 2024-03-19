@@ -25,4 +25,11 @@ public class VisitanteService {
     public void deletarVisitante(Long id) {
         visitanteRepository.deleteById(id);
     }
+
+    public int atualizarVisitante(VisitanteEntity visitanteEntity) {
+        return visitanteRepository.update(
+                visitanteEntity.getNome(),
+                visitanteEntity.getTelefone(),
+                visitanteEntity.getId());
+    }
 }

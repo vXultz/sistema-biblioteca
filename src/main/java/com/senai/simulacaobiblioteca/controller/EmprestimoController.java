@@ -29,4 +29,10 @@ public class EmprestimoController {
     public void deletarEmprestimo(@PathVariable Long id) {
         emprestimoService.deletarEmprestimo(id);
     }
+
+    @PutMapping("/{id}")
+    public EmprestimoEntity atualizarEmprestimo(@PathVariable Long id, @RequestBody EmprestimoDTO emprestimoDTO) {
+        return emprestimoService.atualizarEmprestimo(id, emprestimoDTO);
+    }
 }
+

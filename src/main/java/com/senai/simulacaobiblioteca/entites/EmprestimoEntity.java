@@ -26,4 +26,5 @@ public class EmprestimoEntity {
 
     private LocalDateTime dataEmprestimo;
     private LocalDateTime dataDevolucao;
+
 }

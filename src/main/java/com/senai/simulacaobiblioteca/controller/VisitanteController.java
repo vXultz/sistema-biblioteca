@@ -28,4 +28,13 @@ public class VisitanteController {
     public void deletarVisitante(@PathVariable Long id) {
         visitanteService.deletarVisitante(id);
     }
+
+    @PutMapping
+    public int atualizarVisitante(@RequestBody VisitanteEntity visitanteEntity) {
+        return visitanteService.atualizarVisitante(new VisitanteEntity(
+                visitanteEntity.getId(),
+                visitanteEntity.getNome(),
+                visitanteEntity.getTelefone()
+        ));
+    }
 }
